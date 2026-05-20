@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Energetic EJ — Execution Partner</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0F0F0F;
+  --cream:#FAF8F6;
+  --warm:#F3EFF7;
+  --plum:#5B2D5E;
+  --plum-dark:#3D1C40;
+  --plum-light:#7A4480;
+  --gold:#C9A84C;
+  --muted:#6B6068;
+  --border:#E0D8E4;
+  --lred:#F5EFF7;
+  --font-display:'Cormorant Garamond',Georgia,serif;
+  --font-body:'DM Sans',sans-serif
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--font-body);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;background:rgba(250,248,246,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:.02em;color:var(--ink);text-decoration:none;white-space:nowrap}
+.nav-logo span{color:var(--plum)}
+.nav-links{display:flex;gap:24px;list-style:none;align-items:center}
+.nav-links a{font-size:12px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--plum)!important;color:#fff!important;padding:10px 20px;border-radius:2px;font-size:11px!important;letter-spacing:.1em!important;transition:background .2s!important;white-space:nowrap!important}
+.nav-cta:hover{background:var(--plum-dark)!important}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:60px 48px 60px 48px;position:relative}
+.hero-left::after{content:'';position:absolute;top:10%;bottom:10%;right:0;width:1px;background:var(--border)}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--plum);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--plum)}
+.hero-name{font-family:var(--font-display);font-size:clamp(48px,6vw,88px);font-weight:300;line-height:1.05;letter-spacing:-.02em;margin-bottom:8px}
+.hero-name em{font-style:italic;color:var(--plum)}
+.hero-title{font-family:var(--font-display);font-size:clamp(16px,2vw,22px);font-weight:300;color:var(--muted);margin-bottom:32px;line-height:1.4}
+.hero-tagline{font-family:var(--font-display);font-size:clamp(20px,2.5vw,30px);font-weight:400;font-style:italic;line-height:1.4;border-left:3px solid var(--plum);padding-left:20px;margin-bottom:40px;color:var(--ink)}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;background:var(--plum);color:#fff;padding:16px 28px;font-family:var(--font-body);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .3s;width:fit-content}
+.hero-cta:hover{background:var(--plum-dark);transform:translateY(-2px)}
+.hero-right{position:relative;display:flex;align-items:center;justify-content:center;background:var(--warm);overflow:hidden;min-height:500px}
+.hero-photo-wrap{position:relative;width:340px;height:440px}
+.hero-photo-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--plum) 0%,var(--plum-dark) 100%);transform:translate(14px,14px);border-radius:2px}
+.hero-photo{position:relative;z-index:1;width:100%;height:100%;border-radius:2px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#d4c4d8 0%,#b8a0bc 100%);font-family:var(--font-display);font-size:72px;font-weight:300;color:rgba(255,255,255,0.6)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;inset:0}
+.hero-photo-label{position:absolute;bottom:-14px;right:-14px;z-index:2;background:var(--ink);color:var(--cream);padding:10px 18px;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+
+/* ── SECTIONS ── */
+section{padding:80px 48px}
+.section-label{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--plum);display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.section-label::before{content:'';display:block;width:24px;height:1px;background:var(--plum)}
+.section-heading{font-family:var(--font-display);font-size:clamp(32px,4.5vw,60px);font-weight:300;line-height:1.1;margin-bottom:48px}
+.section-heading em{font-style:italic;color:var(--plum)}
+
+/* ── ABOUT ── */
+.about{background:var(--plum-dark);color:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about .section-label{color:var(--gold)}
+.about .section-label::before{background:var(--gold)}
+.about .section-heading em{color:var(--gold)}
+.about-body{font-size:16px;line-height:1.85;color:rgba(250,248,246,0.8)}
+.about-body p+p{margin-top:20px}
+.about-body strong{color:var(--cream);font-weight:500}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:40px}
+.stat{background:rgba(255,255,255,0.05);padding:24px 20px;border:1px solid rgba(255,255,255,0.1)}
+.stat-num{font-family:var(--font-display);font-size:38px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:6px}
+.stat-label{font-size:11px;letter-spacing:.06em;color:rgba(250,248,246,0.5);text-transform:uppercase}
+.about-right{border-left:1px solid rgba(255,255,255,0.1);padding-left:64px}
+.about-quote{font-family:var(--font-display);font-size:clamp(20px,2.5vw,30px);font-style:italic;font-weight:300;line-height:1.5;color:var(--cream);margin-bottom:32px}
+.about-quote::before{content:'\201C';font-size:72px;line-height:0.6;color:var(--gold);display:block;margin-bottom:16px;font-family:var(--font-display)}
+
+/* ── SERVICES ── */
+.services{background:var(--cream)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.service-card{background:var(--warm);padding:40px 32px;border:1px solid var(--border);transition:all .3s;cursor:default}
+.service-card:hover{background:var(--plum-dark);border-color:var(--plum-dark);transform:translateY(-4px)}
+.service-card:hover .service-num,.service-card:hover .service-title,.service-card:hover .service-body{color:var(--cream)}
+.service-card:hover .service-divider{background:var(--gold)}
+.service-card:hover .service-tag{border-color:rgba(255,255,255,0.2);color:rgba(250,248,246,0.6)}
+.service-num{font-family:var(--font-display);font-size:44px;font-weight:300;color:var(--border);line-height:1;margin-bottom:20px;transition:color .3s}
+.service-title{font-family:var(--font-display);font-size:22px;font-weight:600;margin-bottom:14px;transition:color .3s;line-height:1.2}
+.service-divider{width:32px;height:2px;background:var(--plum);margin-bottom:18px;transition:background .3s}
+.service-body{font-size:14px;line-height:1.8;color:var(--muted);transition:color .3s}
+.service-tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:6px}
+.service-tag{font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);border-radius:1px;color:var(--muted);transition:all .3s}
+
+/* ── WORK ── */
+.work{background:var(--warm)}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.work-card{background:var(--cream);border:1px solid var(--border);padding:28px 24px;position:relative;transition:all .3s}
+.work-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--plum);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.work-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(91,45,94,0.1)}
+.work-card:hover::before{transform:scaleX(1)}
+.work-badge{display:inline-block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--plum);border:1px solid var(--plum);padding:4px 10px;margin-bottom:16px;border-radius:1px}
+.work-title{font-family:var(--font-display);font-size:20px;font-weight:600;margin-bottom:10px;line-height:1.2}
+.work-body{font-size:13px;line-height:1.75;color:var(--muted)}
+.work-label{margin-top:14px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px}
+.work-label::before{content:'';display:block;width:16px;height:1px;background:var(--muted)}
+
+/* ── TOOLS ── */
+.tools{background:var(--plum-dark);color:var(--cream);text-align:center}
+.tools .section-label{color:var(--gold);justify-content:center}
+.tools .section-label::before{background:var(--gold)}
+.tools .section-heading{color:var(--cream);margin-bottom:36px}
+.tools .section-heading em{color:var(--gold)}
+.tools-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:800px;margin:0 auto}
+.tool-pill{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);padding:10px 20px;border-radius:2px;font-size:13px;letter-spacing:.04em;color:rgba(250,248,246,0.85);transition:all .3s}
+.tool-pill:hover{background:var(--plum);border-color:var(--plum)}
+
+/* ── PROCESS ── */
+.process{background:var(--cream)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.process-step{padding:36px 24px;border:1px solid var(--border);position:relative}
+.process-step::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--border);z-index:1}
+.process-step:last-child::after{display:none}
+.process-step-num{font-family:var(--font-display);font-size:48px;font-weight:300;color:var(--border);line-height:1;margin-bottom:14px}
+.process-step-title{font-family:var(--font-display);font-size:19px;font-weight:600;margin-bottom:10px}
+.process-step-body{font-size:13px;line-height:1.75;color:var(--muted)}
+
+/* ── CTA ── */
+.cta-section{background:var(--plum);text-align:center;padding:100px 48px}
+.cta-section .section-label{color:rgba(255,255,255,0.6);justify-content:center}
+.cta-section .section-label::before{background:rgba(255,255,255,0.4)}
+.cta-heading{font-family:var(--font-display);font-size:clamp(36px,5.5vw,72px);font-weight:300;font-style:italic;color:#fff;line-height:1.1;margin-bottom:20px}
+.cta-sub{font-size:16px;color:rgba(255,255,255,0.75);max-width:480px;margin:0 auto 40px}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;background:#fff;color:var(--plum);padding:16px 36px;font-family:var(--font-body);font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .3s}
+.cta-btn:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(250,248,246,0.5);padding:36px 48px;display:flex;justify-content:space-between;align-items:center;font-size:13px;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:var(--font-display);font-size:18px;color:var(--cream)}
+.footer-logo span{color:var(--gold)}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{animation:fadeUp .6s ease .1s both}
+.hero-name{animation:fadeUp .6s ease .25s both}
+.hero-title{animation:fadeUp .6s ease .35s both}
+.hero-tagline{animation:fadeUp .6s ease .45s both}
+.hero-cta{animation:fadeUp .6s ease .55s both}
+.hero-right{animation:fadeUp .8s ease .2s both}
+
+/* ══════════════════════════════════════════════════
+   MOBILE RESPONSIVE — everything below 768px
+══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* NAV */
+  nav{padding:14px 20px}
+  .nav-links{gap:12px}
+  .nav-links li:not(:last-child){display:none}
+  .nav-cta{padding:10px 16px!important;font-size:11px!important}
+
+  /* HERO — stack vertically, photo on top */
+  .hero{
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto;
+    min-height:auto;
+    padding-top:64px;
+  }
+  .hero-right{
+    order:-1;
+    min-height:320px;
+    padding:32px 20px;
+  }
+  .hero-photo-wrap{
+    width:220px;
+    height:280px;
+  }
+  .hero-photo-bg{transform:translate(10px,10px)}
+  .hero-photo-label{font-size:9px;padding:8px 12px;bottom:-10px;right:-10px}
+  .hero-left{
+    padding:40px 24px;
+    text-align:left;
+  }
+  .hero-left::after{display:none}
+  .hero-name{font-size:52px;margin-bottom:8px}
+  .hero-title{font-size:16px;margin-bottom:24px}
+  .hero-tagline{font-size:20px;margin-bottom:32px}
+  .hero-eyebrow{margin-bottom:16px}
+
+  /* SECTIONS */
+  section{padding:60px 24px}
+  .section-heading{font-size:36px;margin-bottom:32px}
+
+  /* ABOUT — single column */
+  .about{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+  .about-right{
+    border-left:none;
+    border-top:1px solid rgba(255,255,255,0.1);
+    padding-left:0;
+    padding-top:40px;
+  }
+  .about-quote{font-size:22px}
+  .about-stats{grid-template-columns:1fr 1fr;gap:2px}
+  .stat{padding:20px 16px}
+  .stat-num{font-size:32px}
+
+  /* SERVICES — single column */
+  .services-grid{grid-template-columns:1fr;gap:12px}
+  .service-card{padding:32px 24px}
+
+  /* WORK — single column */
+  .work-grid{grid-template-columns:1fr;gap:16px}
+  .work-card{padding:24px 20px}
+
+  /* TOOLS */
+  .tools-grid{gap:8px}
+  .tool-pill{font-size:12px;padding:8px 16px}
+
+  /* PROCESS — 2 column on mobile */
+  .process-steps{grid-template-columns:1fr 1fr;gap:12px}
+  .process-step::after{display:none}
+  .process-step{padding:28px 20px}
+  .process-step-num{font-size:38px}
+
+  /* CTA */
+  .cta-section{padding:72px 24px}
+  .cta-heading{font-size:36px}
+  .cta-sub{font-size:15px}
+  .cta-btn{padding:14px 28px;font-size:12px}
+
+  /* FOOTER */
+  footer{
+    flex-direction:column;
+    text-align:center;
+    padding:32px 24px;
+    gap:10px;
+  }
+}
+
+/* ── TABLET 769px to 1024px ── */
+@media (min-width:769px) and (max-width:1024px){
+  nav{padding:16px 28px}
+  .hero-left{padding:40px 32px}
+  .hero-photo-wrap{width:280px;height:360px}
+  section{padding:80px 32px}
+  .services-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .work-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .process-steps{grid-template-columns:1fr 1fr;gap:12px}
+  .process-step::after{display:none}
+  .about{gap:40px}
+  .about-right{padding-left:40px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">The <em style="font-style:italic;">Energetic</em> <span>EJ</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Execution Partner</div>
+    <h1 class="hero-name">The<br><em>Energetic</em><br>EJ</h1>
+    <p class="hero-title">For Coaches, Consultants &amp; Purpose-Driven Entrepreneurs</p>
+    <p class="hero-tagline">You bring the vision.<br>I handle the execution.</p>
+    <a href="#contact" class="hero-cta">Let's See If We're a Match &rarr;</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-bg"></div>
+      <div class="hero-photo">
+        <img src="photo.jpg" alt="EJ">
+      </div>
+      <div class="hero-photo-label">Execution Partner</div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-left">
+    <div class="section-label">About EJ</div>
+    <h2 class="section-heading">More than<br>a VA. A <em>partner.</em></h2>
+    <div class="about-body">
+      <p>I am EJ — an Execution Partner for coaches, consultants, and purpose-driven entrepreneurs who are doing powerful work but losing hours to the operational side of their business.</p>
+      <p>My background is in <strong>coaching</strong>, which means I do not just complete your tasks — I understand the vision behind them. I protect your voice, honour your brand message, and deliver work that sounds like you, feels like you, and moves your business forward.</p>
+      <p>You bring the vision. I handle the execution. <strong>Together we get results.</strong></p>
+    </div>
+    <div class="about-stats">
+      <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Onboarding turnaround</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Brand voice preserved</div></div>
+      <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Tools mastered</div></div>
+      <div class="stat"><div class="stat-num">&infin;</div><div class="stat-label">Dedication to your growth</div></div>
+    </div>
+  </div>
+  <div class="about-right">
+    <div class="about-quote">I partner with my clients to get results without them having to worry about the work. I do the work but maintain their voice and brand message.</div>
+    <p style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:rgba(250,248,246,0.4);">&mdash; EJ, Execution Partner</p>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-label">What I Do</div>
+  <h2 class="section-heading">Services built for<br><em>busy visionaries</em></h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3 class="service-title">Executive Operations Support</h3>
+      <div class="service-divider"></div>
+      <p class="service-body">You stay focused on your clients and your vision. I keep everything else running — seamlessly, professionally, and exactly to your standard.</p>
+      <div class="service-tags"><span class="service-tag">Email Management</span><span class="service-tag">Calendar</span><span class="service-tag">Scheduling</span><span class="service-tag">Travel Coordination</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3 class="service-title">Brand-Aligned Content Execution</h3>
+      <div class="service-divider"></div>
+      <p class="service-body">Every piece of content goes out sounding exactly like you — because I learn your voice before I touch your content. Your message stays intact.</p>
+      <div class="service-tags"><span class="service-tag">Social Media</span><span class="service-tag">Newsletters</span><span class="service-tag">Content Repurposing</span><span class="service-tag">Research</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3 class="service-title">Systems &amp; Automation Setup</h3>
+      <div class="service-divider"></div>
+      <p class="service-body">I build the workflows and automations that eliminate repetitive tasks from your life. From booking systems to project trackers, I create structures that run while you sleep.</p>
+      <div class="service-tags"><span class="service-tag">Make.com</span><span class="service-tag">Google Sheets</span><span class="service-tag">Automation</span><span class="service-tag">SOPs</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="section-label">Work Samples</div>
+  <h2 class="section-heading">Execution in<br><em>action</em></h2>
+  <div class="work-grid">
+    <div class="work-card">
+      <span class="work-badge">Automation</span>
+      <h3 class="work-title">Client Booking Automation — TEJ Events</h3>
+      <p class="work-body">Built a full booking confirmation automation using Make.com, Google Forms, Google Sheets, and Gmail. Every client submission triggers an instant personalised confirmation email and auto-logs data to a structured tracking sheet.</p>
+      <div class="work-label">SOP and System Build</div>
+    </div>
+    <div class="work-card">
+      <span class="work-badge">Project Management</span>
+      <h3 class="work-title">72-Hour VA Engagement — App Launch Support</h3>
+      <p class="work-body">Delivered full VA support for a client's app pre-launch in 72 hours: content tracker, social post designs, Facebook page setup, three-platform management, app testing, user feedback form, and a founder's weekly reporting system.</p>
+      <div class="work-label">Client: App Founder</div>
+    </div>
+    <div class="work-card">
+      <span class="work-badge">Operations</span>
+      <h3 class="work-title">60-Hour Project Support — Construction &amp; Branding</h3>
+      <p class="work-body">Cross-functional VA support covering electrical project planning, progress reporting systems, full building implementation framework, Google Sheets project tracker, Plane.so migration, vendor coordination, and LinkedIn optimisation.</p>
+      <div class="work-label">Client: Oluchi Oraekwe</div>
+    </div>
+    <div class="work-card">
+      <span class="work-badge">Travel Management</span>
+      <h3 class="work-title">Executive Travel Command Centre — Rest Realty</h3>
+      <p class="work-body">Designed and built a comprehensive executive travel management system for a real estate client — structured for seamless trip planning, itinerary tracking, and travel coordination built to the executive's standards.</p>
+      <div class="work-label">Notion System Build</div>
+    </div>
+    <div class="work-card">
+      <span class="work-badge">Startup Operations</span>
+      <h3 class="work-title">Full Startup Operations Manual</h3>
+      <p class="work-body">Developed a complete business operations manual for an early-stage VA agency — SOPs, client onboarding workflows, VA recruitment systems, quality assurance framework, daily operations rhythm, and a 90-day execution roadmap.</p>
+      <div class="work-label">Startup Incubator Programme</div>
+    </div>
+    <div class="work-card">
+      <span class="work-badge">Strategy</span>
+      <h3 class="work-title">Investor Pitch Deck &amp; Business Forms Suite</h3>
+      <p class="work-body">Created a 14-slide investor presentation with revenue model, pricing breakdown, and a $15,000 investment ask. Plus a complete suite of eight operational documents including contracts, NDAs, intake forms, and satisfaction systems.</p>
+      <div class="work-label">Startup Incubator Programme</div>
+    </div>
+  </div>
+</section>
+
+<section class="tools" id="tools">
+  <div class="section-label">Tools I Work With</div>
+  <h2 class="section-heading">Fluent in the tools that<br><em>keep businesses moving</em></h2>
+  <div class="tools-grid">
+    <span class="tool-pill">Make.com</span>
+    <span class="tool-pill">Google Workspace</span>
+    <span class="tool-pill">Trello</span>
+    <span class="tool-pill">Notion</span>
+    <span class="tool-pill">Airtable</span>
+    <span class="tool-pill">Slack</span>
+    <span class="tool-pill">Canva</span>
+    <span class="tool-pill">Calendly</span>
+    <span class="tool-pill">Plane.so</span>
+    <span class="tool-pill">JotForm</span>
+    <span class="tool-pill">Wave</span>
+    <span class="tool-pill">Meta Business Suite</span>
+    <span class="tool-pill">LinkedIn</span>
+    <span class="tool-pill">Buffer</span>
+    <span class="tool-pill">ChatGPT / Claude</span>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="section-label">How We Work Together</div>
+  <h2 class="section-heading">A partnership built<br>on <em>clarity</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="process-step-num">01</div>
+      <h3 class="process-step-title">Discovery Call</h3>
+      <p class="process-step-body">We spend 30 minutes getting clear on your business, your goals, and whether we are a genuine match. No pressure. Just honest conversation.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">02</div>
+      <h3 class="process-step-title">Voice Immersion</h3>
+      <p class="process-step-body">Before I touch a single task, I study your brand, your tone, and your voice. This is what makes the work feel like you.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">03</div>
+      <h3 class="process-step-title">Execution Begins</h3>
+      <p class="process-step-body">I get to work. You get your time back. Regular check-ins keep us aligned without adding to your plate.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">04</div>
+      <h3 class="process-step-title">Grow Together</h3>
+      <p class="process-step-body">As your business grows, our partnership grows with it. I am not just here for the tasks. I am here for the journey.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="section-label">Ready to Begin</div>
+  <h2 class="cta-heading">Let's see if we're<br>a great match.</h2>
+  <p class="cta-sub">Book a free 30-minute discovery call. We will get clear on your needs and decide together if this partnership makes sense.</p>
+  <a href="https://calendly.com" target="_blank" class="cta-btn">Book Your Free Discovery Call &rarr;</a>
+</section>
+
+<footer>
+  <div class="footer-logo">The <em style="font-style:italic;">Energetic</em> <span>EJ</span></div>
+  <p>Execution Partner for Coaches, Consultants &amp; Purpose-Driven Entrepreneurs</p>
+  <p>&copy; 2025 The Energetic EJ</p>
+</footer>
+
+</body>
+</html>
